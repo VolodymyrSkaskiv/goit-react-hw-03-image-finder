@@ -86,8 +86,8 @@ export class App extends Component {
   // Функція, яка викликається при натисканні на кнопку "Close".
   closeModal = () => {
     // Використовуємо setState з функцією, яка приймає попередній стан і повертає новий.
-    this.setState(({ showModal }) => {
-      return { showModal: !showModal };
+    this.setState(({ showModal, largeImageURL, alt }) => {
+      return { showModal: !showModal, largeImageURL: null, alt: null };
     });
   };
 

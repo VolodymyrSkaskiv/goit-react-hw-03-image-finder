@@ -1,12 +1,14 @@
 import { Component } from 'react';
-import { createPortal } from 'react-dom'; // для рендеринга в іншому місці
+// import { createPortal } from 'react-dom'; // для рендеринга в іншому місці
 import css from './Modal.module.css';
+import PropTypes from 'prop-types';
 
 // Пошук модалки щоб динамічно додати до DOM-дерева сторінки
-const modalRoot = document.querySelector('#modal-root');
+// const modalRoot = document.querySelector('#modal-root');
 
 export class Modal extends Component {
   // реєструє обробник події keydown на вікні браузера
+
   componentDidMount() {
     window.addEventListener('keydown', this.keyDown); // при натисканні клавіші Escape викликає функцію keyDown
   }
@@ -29,12 +31,19 @@ export class Modal extends Component {
   };
 
   render() {
-    return createPortal(
+    return (
       <div onClick={this.handleClose} className={css.Overlay}>
-        <div className={css.Modal}>{this.props.children}</div>{' '}
+        <div className={css.Modal}>{this.props.children}</div>
         {/* рендеринг дочірніх елементів */}
-      </div>,
-      modalRoot
+      </div>
     );
   }
 }
+
+Modal.propTypes = {
+  showModal: PropTypes.bool,
+  onClose: PropTypes.func,
+  children: PropTypes.node.isRequired,
+  largeImageURL: PropTypes.string,
+  alt: PropTypes.string,
+};

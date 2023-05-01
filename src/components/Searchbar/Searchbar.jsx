@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { toast } from 'react-hot-toast'; // для показу повідомлень
 import { BiSearch } from 'react-icons/bi'; // іконка пошуку
 import css from './Searchbar.module.css'; // стилізація
+import PropTypes from 'prop-types';
 
 // Компонент пошуку
 export class Searchbar extends Component {
@@ -54,3 +55,7 @@ export class Searchbar extends Component {
     );
   }
 }
+
+Searchbar.propTypes = {
+  search: PropTypes.string,
+};
