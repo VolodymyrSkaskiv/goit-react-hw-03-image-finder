@@ -28,5 +28,10 @@ export const ImageGalleryItem = ({ images, togleModal }) => {
 
 // типизація пропсів
 ImageGalleryItem.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object).isRequired,
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      largeImageURL: PropTypes.string.isRequired,
+      tags: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };

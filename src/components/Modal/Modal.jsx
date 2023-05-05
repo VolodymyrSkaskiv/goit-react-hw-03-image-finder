@@ -1,5 +1,4 @@
 import { Component } from 'react';
-// import { createPortal } from 'react-dom'; // для рендеринга в іншому місці
 import css from './Modal.module.css';
 import PropTypes from 'prop-types';
 
@@ -41,8 +40,7 @@ export class Modal extends Component {
 }
 
 Modal.propTypes = {
-  showModal: PropTypes.bool,
-  onClose: PropTypes.func,
+  closeModal: PropTypes.func,
   children: PropTypes.node.isRequired,
   largeImageURL: PropTypes.string,
   alt: PropTypes.string,
