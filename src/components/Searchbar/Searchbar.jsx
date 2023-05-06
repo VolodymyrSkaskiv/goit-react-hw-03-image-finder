@@ -26,8 +26,8 @@ export class Searchbar extends Component {
           onSubmit={evt => {
             evt.preventDefault();
 
-            if (!this.state.search) {
-              return toast.error('Enter text for search.'); //пустий запит
+            if (this.state.search.trim() === '') {
+              return toast.error('Enter text for search.'); //пустий запит, і пробіли
             }
 
             // виклик функції з App.jsx для відправки запиту
